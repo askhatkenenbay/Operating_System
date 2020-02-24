@@ -1,0 +1,45 @@
+printf: %c -> char
+	%f -> float
+	%s -> string
+float: 1.069F
+double: default 0.003
+long double: -7.0L
+
+&x -> address operator for x
+scanf("%d",&x);
+
+C has six kinds of tokens: keywords, identifiers, constants, string constants, operators, punctuators.
+
+#include <assert.h>
+assert(x > 0);
+
+cc -o pgm main.c fct.c prn.c
+
+If v is a variable, then &v is the address
+
+int i, *p // declares i to be of type int and p to be of the type "pointer to int"
+
+p = (int *) 1307; // an absolute address in memory
+
+--------
+int a, b;
+int *p;
+a = b = 7;
+p = &a; // The direct value of p is a memory location, whereas *p is the indirect value
+	// namely, the value at the memory location stored in p
+--------
+If the variable p is a pointer to a particular type, then the expression p+1 yields the correct
+machine address for storing or accessing the next variable of that type
+
+int *a;
+a = calloc(n, sizeof(int));
+a = malloc(n*sizeof(int));
+free(a);
+
+------
+char **argv;
+It is a pointer to pointer to char that can be thought of as an array of pointers to
+char, which in turn can be thought of as an array of strings.
+------
+
+system() in <stdlib.h> input string; os command

@@ -1,0 +1,3 @@
+rm 	-> remove/delete file
+rm -r 	->remove/delete directory
+mkdir	->create directory

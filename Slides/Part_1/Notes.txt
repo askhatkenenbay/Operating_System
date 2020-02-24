@@ -1,0 +1,59 @@
+Operating System : The software that controls the hardware and resources of a computer system,
+	Controls access to CPU(s), allowing multiple programs to run at the same time
+	Manages acces to the memory and other hardware/devices
+	Provides a consistent interface to OS functionality
+
+System calls: functions that directly invoke the operating system, e.g. read(), malloc()
+
+- rwx rwx rwx 
+	1. - indicates regular file, d indicates directory
+	2. read, write, execute permission for file owner
+	3. for the group owner
+	4. for all other users
+
+The operating system as a resource manager
+	->allow multiple programs to run at the same time
+	->manage and protect memory, I/O devices and other resources
+	->includes multiplexing(sharing) resources in two different ways: in time and in space
+
+The one program running at all times on the computer is the kernel,
+	everythin else is either a system program or an application program
+
+Bootstrap program is loaded at power-up or reboot 
+	typically stored in ROM or EPROM, generally known as firmware
+	initiallize all aspects of system
+	loads operating system kernel ans starts execution
+
+An operating system is interrupt driven
+
+Special file descriptors:
+	0 - STDIN_FILENO
+	1 - STDOUT_FILENO
+	2 - STDERR
+
+File descriptors:
+	-> A file descriptor is an index into an array of pointers to entries in the open file table
+	-> Each file table entry has some information about the status and offset in this file, then a
+		pointer to a vnode representing the actual file
+
+Basic I/O system calls : www.classes.cs.uchicago.edu/archive/2014/winter/51081-1/LabFAQ/lab3/fileio.html
+
+Process : a program in execution; process execution must progress in sequential fashion
+
+Principal events that cause processes to be created:
+	->System initialization
+	->Execution of a process creation system call by a running process
+	->A user request to create a new process
+
+Typical conditions which terminate a process:
+	->Normal exit(voluntary)
+	->Error exit(voluntary)
+	->Fatal error(invlountary)
+	->Killed by another process(involuntary)
+
+Process can create other processes, forming a hierarchy. A process with its descendants form a process group
+
+Three states a process may be in:
+	->Running, actually using the CPU at that instant
+	->Ready, runnable; temporarily stopped to let another process run
+	->Blocked, unable to run until some external event happens
