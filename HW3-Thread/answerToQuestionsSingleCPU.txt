@@ -1,0 +1,38 @@
+1.What are the processor and memory specifications of the machine you are running your program on?
+	-> AWS EC2 t2.micro (Variable ECUs, 1 vCPUs, 2.5 GHz, Intel Xeon Family, 1 GiB memory, EBS only) // Server, not PC
+2.List the real time in microseconds that your program took with the following inputs (on the second try):
+mm 10 20 2 4
+	->Seq:151
+	->Thread:606
+
+mm 50 70 2 4
+	->1136
+	->3059
+
+mm 100 200 2 4
+	->10973
+	->15239
+
+mm 300 500 2 4
+	->251043
+	->274979
+
+mm 500 700 2 4
+	->976559
+	->996371
+
+mm 900 1000 2 4
+	->4_734_180
+	->4_735_204
+
+mm 1023 1023 2 4
+	->6_387_064
+	->6_486_176
+
+3.What is the pattern you see in the time difference between the sequential and parallel implementations, and how do you explain your results?
+	->When matrix is small, sequential implementation is faster because more time is spend creating and starting threads. However, as matrix gets bigger 
+	->difference become smaller. Since I used remote server (AWS EC2) with only one processor, results between sequential and threaded implementations
+	->are not notably different. If machine have more CPU's, difference between two implementations for large matrixes will get considerably greater.
+
+4.Did your threaded solution require any synchronization mechanisms?  Explain why or why not.
+	->No synchronization mechanisms is needed because there are no critical section. Each thread works totally independent from other threads.

@@ -1,0 +1,37 @@
+1.
+    Processor: Intel® Core™ i5-7300HQ CPU @ 2.50GHz × 4 
+    Memory: 7.7 GiB
+2. 
+mm 10 20 2 4:
+    Sequential:  83 usec;
+    Multithreaded: 4400 usec;
+
+mm 50 70 2 4:
+    Sequential: 3976 usec;
+    Multithreaded: 5911 usec;
+
+mm 100 200 2 4:
+    Sequential: 39057 usec;
+    Multithreaded: 10836 usec;
+
+mm 300 500 2 4:
+    Sequential: 331944 usec;
+    Multithreaded: 102767 usec;
+
+mm 500 700 2 4:
+    Sequential: 1244465 usec;
+    Multithreaded: 334925 usec;
+
+mm 900 1000 2 4:
+    Sequential: 11321724 usec;
+    Multithreaded: 2233519 usec;
+
+mm 1023 1023 2 4:
+    Sequential: 13733073 usec;
+    Multithreaded: 2871080 usec;
+
+3. Initially when number of rows was small, sequential function was working faster than multithreaded one. 
+However, when number of rows increased, multithreaded function took the lead. 
+
+
+4. No. Because each thread was reading and writing different parts of "results" array. Other variables didn't change during multithreaded execution.
